@@ -1,7 +1,51 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
-	<display-name>Test English</display-name>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+	<display-name>HGANY_TestEnglish</display-name>
+	
+	<!-- Welcome Files List -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<!-- Error Pages -->
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/WEB-INF/webpages/error.html</location>
+	</error-page>
+	
+	<!-- Context Init Parameters -->
+	<context-param>
+		<param-name>jdbc_resource_name</param-name>
+		<param-value>java:comp/env/jdbc/testenglish</param-value>
+	</context-param>
+	<context-param>
+		<param-name>urls_prop_file</param-name>
+		<param-value>/WEB-INF/properties/urls.properties</param-value>
+	</context-param>
+	<context-param>
+		<param-name>webpages_prop_file</param-name>
+		<param-value>/WEB-INF/properties/webpages.properties</param-value>
+	</context-param>
+	<context-param>
+		<param-name>messages_prop_file</param-name>
+		<param-value>/WEB-INF/properties/messages.properties</param-value>
+	</context-param>
+	<context-param>
+		<param-name>login_cookie_max_age</param-name>
+		<param-value>2592000</param-value> <!-- seconds -->
+	</context-param>
+	
+	<!-- Session Configs -->
+	<session-config>
+		<session-timeout>43200</session-timeout> <!-- minutes -->
+	</session-config>
+	
+	<!-- Resources -->
+	<resource-ref>
+		<res-ref-name>jdbc/testenglish</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Application</res-auth>
+	</resource-ref>
+	
 </web-app>

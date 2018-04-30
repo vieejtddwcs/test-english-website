@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Upload đề thi | Test English</title>
+</head>
+<body>
+	<div id="page-title">
+		<h2>Upload đề thi</h2>
+	</div>
+	<div id="page-upload_form">
+		<form method="POST" action="https://upload.uploadcare.com/submit/" enctype="multipart/form-data" onsubmit="return validate()">
+			<input type="hidden" name="UPLOADCARE_PUB_KEY" value="22cf8481fcddf0b87a18">
+			<input type="hidden" name="UPLOADCARE_ACTION" value="http://localhost:8080/testenglish/uploadtest">
+			<input type="hidden" name="UPLOADCARE_STORE" value="1">
+			<input type="hidden" name="DB_OPERATION" value="INSERT">
+			<span id="error_message"></span>
+			<div id="input-test_file">
+				<span>Chọn file đề:</span>
+				<input type="file" id="test_file" name="test_file">
+			</div>
+			<div id="input-listening_file">
+				<span>Chọn file nghe:</span>
+				<input type="file" id="listening_file" name="listening_file">
+			</div>
+			<div id="input-answer_file">
+				<span>Chọn file đáp án:</span>
+				<input type="file" id="answer_file" name="answer_file">
+			</div>
+			<div id="select-test_type">
+				<span>Chọn loại đề:</span>
+				<select name="test_type">
+					<option value="TOEIC">TOEIC</option>
+				</select>
+			</div>
+			<div id="input-test_name">
+				<span>Tên đề:</span>
+				<input type="text" id="test_name" name="test_name">
+			</div>
+			<div id="input-submit">
+				<input type="submit" value="Upload">
+			</div>
+		</form>
+	</div>
+	<div id="page-navigation">
+		<a href="/testenglish">Trang chủ</a> | <a href="testlist">Danh sách đề thi</a> | <a href="logout">Đăng xuất</a>
+	</div>
+	<script type="text/javascript" src="/testenglish/js/uploadvalidate.js"></script>
+</body>
+</html>
